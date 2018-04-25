@@ -17,7 +17,7 @@ CONTENTS:
 06 Footer
 07 Icons
 08 Buttons
-09 Media queries 
+09 Media queries
 ===========================
 */
 /* Import css */
@@ -91,7 +91,7 @@ a.scrollup {
 a.scrollup:hover,a.scrollup:active,a.scrollup:focus {
 	opacity:1;
 	text-decoration:none;
-	-webkit-transition: all 400ms ease-out 0s;	
+	-webkit-transition: all 400ms ease-out 0s;
 	   -moz-transition: all 400ms ease-out 0s;
 		 -o-transition: all 400ms ease-out 0s;
 		    transition: all 400ms ease-out 0s;
@@ -129,7 +129,7 @@ a.scrollup i:hover {
 
 /*---------- forms ----------*/
 
-input[type=text], input[type=submit], textarea {
+input[type=text], input[type=submit], input[type=reset], textarea {
 	width: 100%;
 	padding: 0.5em;
 	font-size: 1em;
@@ -494,14 +494,14 @@ section.spacer.bg2 {
 	background: url(../img/bg/bg-2.jpg) 50% 0 no-repeat fixed;
 	width:100%;
 	height:auto;
-	margin:0;	
+	margin:0;
 }
 
 section.spacer.bg3 {
 	background: url(../img/bg/bg-3.jpg) 50% 0 no-repeat fixed;
 	width:100%;
 	height:auto;
-	margin:0;	
+	margin:0;
 }
 
 section.spacer blockquote.large:before {
@@ -767,7 +767,7 @@ section#blog {
 
 .home-post {
 	background:#fff;
-	
+
 }
 
 .home-post:hover {
@@ -928,7 +928,10 @@ section#about {
 	z-index: 999;
 }
 
-#contact-form input[type=text], .contactForm textarea {
+#contact-form input[type=text]
+, #contact-form input[type=radio]
+, .contactForm textarea
+{
 	background: rgba(227, 231, 228, 1);
 	font-family: 'Open Sans', sans serif;
 	border: 0;
@@ -936,12 +939,19 @@ section#about {
 	text-align: left;
 	vertical-align: middle;
 }
-
-.contactForm textarea {
-	height: 156px;
+#contact-form label {
+	color:white;
+	font-weight:400;
+	font-size:20px;
+	text-align: left;
+	vertical-align: middle;
 }
 
-#contact-form input[type=text]:focus, .contactForm textarea:focus {
+/* .contactForm textarea {
+	height: 156px;
+} */
+
+#contact-form input[type=text]:focus, #contact-form input[type=radio]:focus, .contactForm textarea:focus {
 	background: #fff;
 	color: #555;
 	box-shadow: none;
@@ -955,15 +965,15 @@ section#about {
 	height: 60px;
 	margin-bottom:30px;
 }
-#contact-form input[type=submit] {
+#contact-form input[type=submit], #contact-form input[type=reset] {
 	color: #fff;
-	width: 185px;
+	width: 105px;
 	height: 60px;
 	text-shadow: none;
 	font-size: 16px;
 	padding:0.5em;
 	letter-spacing: 0.05em;
-	margin: 0 0 20px 0;
+	margin: 0 50px 20px 0;
 	display: block;
 	border: 0;
 	text-transform: none;
@@ -974,7 +984,8 @@ section#about {
 	-moz-box-shadow: none;
 	-webkit-box-shadow: none;
 }
-#contact-form input[type=submit]:hover, #contact-form input[type=submit]:active {
+#contact-form input[type=submit]:hover, #contact-form input[type=submit]:active
+,#contact-form input[type=reset]:hover, #contact-form input[type=reset]:active {
 	background: #43413e !important;
 }
 #contact-form textarea {
@@ -1285,7 +1296,7 @@ i.icon-white {
 /* =========================================================
 08. Buttons
 ============================================================ */
- 
+
 .btn {
 	color: #fff;
 	text-shadow: none;
@@ -1568,28 +1579,28 @@ i.icon-white {
 		padding-right:0;
 		padding:0;
 	}
-	
+
 	.navbar-inner {
 	 padding-right: 20px;
-	 padding-left: 20px;	
+	 padding-left: 20px;
 	}
-	
+
 	.navbar-inner h1.brand {
 		margin-left:20px;
 	}
-	
+
 	.navbar-inner .btn-navbar {
 		margin:20px 20px 0;
 	}
-	
+
 	.container {
 	 padding-right: 20px;
 	 padding-left: 20px;
-	}	
+	}
 	.navbar-inverse .navbar-inner {
 		padding:0 0 30px;
 	}
-	
+
 	.nav-collapse {
 		text-align:center;
 		width:100%;
@@ -1605,25 +1616,25 @@ i.icon-white {
 	}
 	.navbar-inner {
 	 padding-right: 20px;
-	 padding-left: 20px;	
+	 padding-left: 20px;
 	}
-	
+
 	.navbar-inner h1.brand {
 		margin-left:20px;
 	}
-	
+
 	.navbar-inner .btn-navbar {
 		margin:20px 20px 0;
 	}
-	
+
 	.container {
 	 padding-right: 20px;
 	 padding-left: 20px;
-	}	
+	}
 	.navbar-inverse .navbar-inner {
 		padding:0 20px 30px;
 	}
-	
+
 	.nav-collapse {
 		text-align:center;
 		width:100%;
@@ -1632,7 +1643,7 @@ i.icon-white {
 		width: 25%;
 	}
 }
-    
+
     /* Smaller screens ----------- */
 @media (max-width : 480px) {
 	#header-wrapper {
@@ -1652,7 +1663,7 @@ i.icon-white {
 	}
 
 }
-    
+
     /* Smartphones (portrait and landscape) ----------- */
 @media only screen  and (min-device-width : 320px)  and (max-device-width : 480px) {
 
@@ -1679,10 +1690,10 @@ i.icon-white {
  section#services h2, section#services ul {
  text-align: center;
 }
-		
+
 
 /* team */
-		
+
 #team .team-thumb {
  margin-right: auto;
  margin-left: auto;
@@ -1697,12 +1708,13 @@ i.icon-white {
  margin-left: auto;
  margin-right: auto;
 }
-		
+
 /* Contact Form */
 	#contact-form {
 		overflow: hidden;
 	}
-	#contact-form input[type=submit] {
+	#contact-form input[type=submit]
+	,#contact-form input[type=reset] {
 		width: 100%;
 	}
 }

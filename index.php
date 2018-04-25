@@ -47,27 +47,47 @@
 	<div class="row">
 		<div class="span12">
 			<div class="cform" id="contact-form">
-				<form action="" method="post" role="form" class="contactForm">
+				<form action="next.php" method="post" role="form" class="contactForm">
 					<div class="row">
 						<div class="span6">
-							<div class="field your-name form-group">
+							<div class="form-group">
+								<label for="name">* 姓名</label>
 								<input type="text" name="name" class="form-control" id="name" placeholder="姓名" />
 							</div>
-							<div class="field your-name form-group">
-								<input type="text" name="sex" class="form-control" id="sex" placeholder="性別" />
+							<div class="form-group">
+								<label for="sex">* 性別</label>
+								<label class="radio-inline">
+									<input type="radio" class="form-control" name="sex" id="inlineRadio1" value="男"> 男
+									<input type="radio" class="form-control" name="sex" id="inlineRadio2" value="女"> 女
+								</label>
+								<br>
 							</div>
-							<div class="field your-email form-group">
-								<input type="text" class="form-control" name="email" id="email" placeholder="Your Email" />
+							<div class="form-group">
+								<label for="email">* Email</label>
+								<input type="text" class="form-control" name="email" id="email" />
 							</div>
-							<div class="field subject form-group">
-								<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" />
+							<div class="form-group">
+								<label for="tel">* 電話</label>
+								<input type="text" class="form-control" name="tel" id="tel" />
+							</div>
+							<div class="form-group">
+								<label for="sex">* 擅長運動</label>
+								<label class="checkbox-inline">
+									<input type="checkbox" class="form-control" name="s1" id="s1" value="羽球"> 羽球
+									<input type="checkbox" class="form-control" name="s2" id="s2" value="籃球"> 籃球
+									<input type="checkbox" class="form-control" name="s3" id="s3" value="桌球"> 桌球
+									<input type="checkbox" class="form-control" name="s4" id="s4" value="直排輪"> 直排輪
+								</label>
+								<br>
 							</div>
 						</div>
 						<div class="span6">
-							<div class="field message form-group">
-								<textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+							<div class="form-group">
+								<label for="message">自傳</label>
+								<textarea class="form-control" name="message" rows="20"></textarea>
 							</div>
 							<input type="submit" value="送出" class="btn btn-theme pull-left">
+							<input type="reset"  value="清除" class="btn btn-theme pull-left">
 						</div>
 					</div>
 				</form>
@@ -106,7 +126,6 @@
 <script src="js/jquery.flexslider.js"></script>
 <script src="js/inview.js"></script>
 <script src="js/animate.js"></script>
-<script src="js/validate.js"></script>
 <script src="js/custom.js"></script>
 
 </body>
