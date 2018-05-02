@@ -47,16 +47,34 @@
 	</div>
 </div>
 <?php
-	if (!isset($_POST['name']) or $_POST['sex']=="" or $_POST['email']=="" or $_POST['tel']=="" or
-	 (!isset($_POST['s1']) and !isset($_POST['s2']) and !isset($_POST['s3']) and !isset($_POST['s4'])))
-	{
-		echo "You have no entry field.";
-?>
-		<script>
-		alert("您有未輸入的欄位(php)");
-		history.back();
-		</script>
-<?php
+	$jb_name = isset($_POST['name'])?$_POST['name']:'';
+	$jb_sex = isset($_POST['sex'])?$_POST['sex']:'';
+	$jb_email = isset($_POST['email'])?$_POST['email']:'';
+	$jb_tel = filter_var($_POST['tel'], FILTER_SANITIZE_NUMBER_INT);
+	$jb_s1 = isset($_POST['s1'])?$_POST['s1']:'';
+	$jb_s2 = isset($_POST['s2'])?$_POST['s2']:'';
+	$jb_s3 = isset($_POST['s3'])?$_POST['s3']:'';
+	$jb_s4 = isset($_POST['s4'])?$_POST['s4']:'';
+	$flag_noinput  = false;
+	$flag_noemail = false;
+	if (
+		empty($jb_name) or empty($jb_sex) or empty($jb_email) or empty($jb_tel)
+		or (
+			empty($jb_s1) and empty($jb_s2) and empty($jb_s3) and empty($jb_s4)
+			)
+	) {
+		$flag_noinput=true;
+	}
+
+	if( !filter_var($jb_email, FILTER_VALIDATE_EMAIL)) {
+		$flag_noemail=true;
+	}
+	if ($flag_noinput or $flag_noemail) {
+		echo "<script>";
+		echo $flag_noinput?"alert('您有必填欄位未填寫');":'';
+		echo $flag_noemail?"alert('您的Email格式有問題');":'';
+		echo "history.back();";
+		echo "</script>";
 	}
 ?>
 <!-- spacer section -->
@@ -78,18 +96,18 @@
 
 							<h4 class="heading">基本資料<span></span></h4>
 <?php
-			echo "姓名：".$_POST['name']."<br />";
-			echo "性別：".$_POST['sex']."<br />";
-			echo "電話：".$_POST['tel']."<br />";
-			echo "Email：".$_POST['email']."<br />";
+			echo "姓名：".$jb_name."<br />";
+			echo "性別：".$jb_sex."<br />";
+			echo "電話：".$jb_tel."<br />";
+			echo "Email：".$jb_email."<br />";
 			echo "擅長運動：";
-			if ( isset($_POST['s1']) )
+			if ( !empty($jb_s1) )
 				echo "羽球,";
-			if ( isset($_POST['s2']) )
+			if ( !empty($jb_s2) )
 				echo "籃球,";
-			if ( isset($_POST['s3']) )
+			if ( !empty($jb_s3) )
 				echo "桌球,";
-			if ( isset($_POST['s4']) )
+			if ( !empty($jb_s4) )
 				echo "直排輪";
 ?>
 
@@ -125,27 +143,9 @@
 </div>
 <!-- ./container -->
 </footer>
-<a href="#" class="scrollup"><i class="icon-angle-up icon-square icon-bgdark icon-2x"></i></a>
 <!-- jQuery -->
 <script src="js/jquery.js"></script>
-<!-- nav -->
-<script src="js/jquery.scrollTo.js"></script>
-<script src="js/jquery.nav.js"></script>
-<!-- localScroll -->
-<script src="js/jquery.localscroll-1.2.7-min.js"></script>
 <!-- bootstrap -->
 <script src="js/bootstrap.js"></script>
-<!-- prettyPhoto -->
-<script src="js/jquery.prettyPhoto.js"></script>
-<!-- Works scripts -->
-<script src="js/isotope.js"></script>
-<!-- flexslider -->
-<script src="js/jquery.flexslider.js"></script>
-<!-- inview -->
-<script src="js/inview.js"></script>
-<!-- animation -->
-<script src="js/animate.js"></script>
-<!-- custom functions -->
-<script src="js/custom.js"></script>
 </body>
 </html>
