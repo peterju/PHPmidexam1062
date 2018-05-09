@@ -47,36 +47,36 @@
 	<div class="row">
 		<div class="span12">
 			<div class="cform" id="contact-form">
-				<form action="next.php" method="post" role="form" class="contactForm">
+				<form id="form1" name="form1" action="next.php" method="post" role="form" class="contactForm">
 					<div class="row">
 						<div class="span6">
 							<div class="form-group">
 								<label for="name">* 姓名</label>
-								<input type="text" name="name" class="form-control" id="name" placeholder="姓名" />
+								<input type="text" name="name" class="form-control required" id="name" placeholder="姓名" />
 							</div>
 							<div class="form-group">
 								<label for="sex">* 性別</label>
 								<label class="radio-inline">
-									<input type="radio" class="form-control" name="sex" id="inlineRadio1" value="男"> 男
-									<input type="radio" class="form-control" name="sex" id="inlineRadio2" value="女"> 女
+									<input type="radio" class="form-control required" name="sex" id="inlineRadio1" value="男"> 男
+									<input type="radio" class="form-control required" name="sex" id="inlineRadio2" value="女"> 女
 								</label>
 								<br>
 							</div>
 							<div class="form-group">
 								<label for="email">* Email</label>
-								<input type="text" class="form-control" name="email" id="email" />
+								<input type="text" class="form-control required email" name="email" id="email" />
 							</div>
 							<div class="form-group">
 								<label for="tel">* 電話</label>
-								<input type="text" class="form-control" name="tel" id="tel" />
+								<input type="text" class="form-control required digits" name="tel" id="tel" />
 							</div>
 							<div class="form-group">
 								<label for="sports">* 擅長運動</label>
 								<label class="checkbox-inline">
-									<input type="checkbox" class="form-control" name="s1" id="s1" value="羽球"> 羽球
-									<input type="checkbox" class="form-control" name="s2" id="s2" value="籃球"> 籃球
-									<input type="checkbox" class="form-control" name="s3" id="s3" value="桌球"> 桌球
-									<input type="checkbox" class="form-control" name="s4" id="s4" value="直排輪"> 直排輪
+									<input type="checkbox" class="form-control required" name="sports[]" id="s1" value="羽球"> 羽球
+									<input type="checkbox" class="form-control required" name="sports[]" id="s2" value="籃球"> 籃球
+									<input type="checkbox" class="form-control required" name="sports[]" id="s3" value="桌球"> 桌球
+									<input type="checkbox" class="form-control required" name="sports[]" id="s4" value="直排輪"> 直排輪
 								</label>
 								<br>
 							</div>
@@ -117,6 +117,14 @@
 </footer>
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/localization/messages_zh_TW.min.js"></script>
 
+<script>
+	$(function(){
+		//須與form表單ID名稱相同
+		$("#form1").validate();
+	});
+</script>
 </body>
 </html>

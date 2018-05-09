@@ -48,20 +48,21 @@
 </div>
 <?php
 	$jb_name = isset($_POST['name'])?$_POST['name']:'';
+	// if (isset($_POST['name']))
+	// {
+	// 	$jb_name = $_POST['name'];
+	// } else {
+	// 	$jb_name = '';
+	// }
 	$jb_sex = isset($_POST['sex'])?$_POST['sex']:'';
 	$jb_email = isset($_POST['email'])?$_POST['email']:'';
 	$jb_tel = filter_var($_POST['tel'], FILTER_SANITIZE_NUMBER_INT);
-	$jb_s1 = isset($_POST['s1'])?$_POST['s1']:'';
-	$jb_s2 = isset($_POST['s2'])?$_POST['s2']:'';
-	$jb_s3 = isset($_POST['s3'])?$_POST['s3']:'';
-	$jb_s4 = isset($_POST['s4'])?$_POST['s4']:'';
+	$jb_sports = implode (",", $_POST['sports']);
+	//$jb_s1 = isset($_POST['s1'])?$_POST['s1']:'';
 	$flag_noinput  = false;
 	$flag_noemail = false;
 	if (
-		empty($jb_name) or empty($jb_sex) or empty($jb_email) or empty($jb_tel)
-		or (
-			empty($jb_s1) and empty($jb_s2) and empty($jb_s3) and empty($jb_s4)
-			)
+		empty($jb_name) or empty($jb_sex) or empty($jb_email) or empty($jb_tel) or empty($jb_sports)
 	) {
 		$flag_noinput=true;
 	}
@@ -100,15 +101,16 @@
 			echo "性別：".$jb_sex."<br />";
 			echo "電話：".$jb_tel."<br />";
 			echo "Email：".$jb_email."<br />";
-			echo "擅長運動：";
-			if ( !empty($jb_s1) )
-				echo "羽球,";
-			if ( !empty($jb_s2) )
-				echo "籃球,";
-			if ( !empty($jb_s3) )
-				echo "桌球,";
-			if ( !empty($jb_s4) )
-				echo "直排輪";
+			echo "擅長運動：".$jb_sports."<br />";
+			// echo "擅長運動：";
+			// if ( !empty($jb_s1) )
+			// 	echo "羽球,";
+			// if ( !empty($jb_s2) )
+			// 	echo "籃球,";
+			// if ( !empty($jb_s3) )
+			// 	echo "桌球,";
+			// if ( !empty($jb_s4) )
+			// 	echo "直排輪";
 ?>
 
 						</div>
